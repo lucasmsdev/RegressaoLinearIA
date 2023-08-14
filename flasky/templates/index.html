@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression Web App</title>
+</head>
+<body>
+    <h1>Regressão Linear Web App</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".xlsx">
+        <input type="submit" value="Carregar e Treinar">
+    </form>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    {% if train_plot %}
+    <h2>Gráfico de Treino</h2>
+    <img src="{{ train_plot }}" alt="Gráfico de Treino">
+    {% endif %}
+    {% if test_plot %}
+    <h2>Gráfico de Teste</h2>
+    <img src="{{ test_plot }}" alt="Gráfico de Teste">
+    {% endif %}
+    {% if specific_value %}
+    <h2>Previsão para Valor Específico (10)</h2>
+    <p>{{ specific_value }}</p>
+    {% endif %}
+</body>
+</html>
